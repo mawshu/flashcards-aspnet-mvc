@@ -1,0 +1,10 @@
+﻿@{
+    ViewData["Title"] = "Статистика";
+}
+<h2>Статистика</h2>
+
+<p>Всего карточек: @ViewData["Count"]</p>
+<p>Уникальные слова: @string.Join(", ", (List<string>)ViewData["Words"])</p>
+<p>Уникальные переводы: @string.Join(", ", (List<string>)ViewData["Translations"])</p>
+
+<a href="/">На главную</a>

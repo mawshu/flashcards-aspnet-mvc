@@ -1,0 +1,22 @@
+﻿@{
+    ViewData["Title"] = "Параметры экспорта";
+}
+
+<h2>Экспорт карточек в JSON</h2>
+
+<form method="get" asp-action="Export">
+    <label>Сортировать по:</label>
+    <select name="sort">
+        <option value="">Без сортировки</option>
+        <option value="Word">Слово</option>
+        <option value="Translation">Перевод</option>
+        <option value="Id">ID</option>
+    </select><br/><br/>
+
+    <label>Максимальное количество карточек (n):</label>
+    <input type="number" name="n" min="1" /><br/><br/>
+
+    <input type="submit" value="Экспортировать в JSON" />
+</form>
+
+<a href="/">На главную</a>

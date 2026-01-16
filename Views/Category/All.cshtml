@@ -1,0 +1,33 @@
+﻿@model List<SergeevaMaria_Lab6_V2_1.Models.Category>
+@{
+    ViewData["Title"] = "Категории";
+}
+
+@if (TempData["Msg"] != null)
+{
+        <p style="color:green;">@TempData["Msg"]</p>
+}
+
+<a href="/Category/Add">Добавить категорию</a>
+
+<table>
+    <tr>
+        <th>Название</th>
+        <th>Описание</th>
+        <th>Действия</th>
+    </tr>
+    @foreach (var category in Model)
+    {
+            <tr>
+                <td>@category.Title</td>
+                <td>@category.Description</td>
+                <td>
+                    <a href="/Category/Details/@category.Id">Подробнее</a> |
+                    <a href="/Category/Edit/@category.Id">Редактировать</a> |
+                    <a href="/Category/Remove/@category.Id">Удалить</a>
+                </td>
+            </tr>
+    }
+</table>
+
+<a href="/">На главную</a>

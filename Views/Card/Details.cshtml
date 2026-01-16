@@ -1,0 +1,11 @@
+﻿@model SergeevaMaria_Lab6_V2_1.Models.Card
+@{
+    ViewData["Title"] = "Детали карточки";
+}
+<h2>Детали карточки</h2>
+
+<p><strong>Слово:</strong> @Model.Word</p>
+<p><strong>Перевод:</strong> @Model.Translation</p>
+<p><strong>Категория:</strong> @Model.Category?.Title</p>
+
+<a href="/">На главную</a>

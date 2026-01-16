@@ -1,0 +1,41 @@
+﻿@model List<SergeevaMaria_Lab6_V2_1.Models.Card>
+@{
+    ViewData["Title"] = "Тестирование";
+}
+<h2>Тестирование</h2>
+
+<form asp-action="Test" method="post">
+    @foreach (var card in Model)
+    {
+        <div>
+            <p><strong>@card.Word</strong></p>
+
+            <input type="hidden" name="cardIds" value="@card.Id" />
+
+            @{
+                var options = new List<string> { card.Translation };
+
+                var wrongOptions = Model
+                    .Where(c => c.Id != card.Id && c.Translation != card.Translation)
+                    .Select(c => c.Translation)
+                    .Distinct()
+                    .Take(3);
+
+                options.AddRange(wrongOptions);
+                options = options.OrderBy(o => Guid.NewGuid()).ToList();
+
+            }
+            @foreach (var option in options)
+            {
+                    <label>
+                        <input type="radio" name="answer_@card.Id" value="@option" /> @option
+                    </label>
+
+                <br />
+            }
+        </div>
+    }
+    <input type="submit" value="Проверить" />
+</form>
+
+<a href="/">На главную</a>

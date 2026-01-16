@@ -1,0 +1,15 @@
+﻿@model SergeevaMaria_Lab6_V2_1.Models.Category
+@{
+    ViewData["Title"] = "Редактировать категорию";
+}
+
+<h2>Редактировать категорию</h2>
+
+<form asp-action="Edit" method="post">
+    <input type="hidden" asp-for="Id" />
+    <label>Название: <input asp-for="Title" /></label><br/>
+    <label>Описание: <input asp-for="Description" /></label><br/>
+    <input type="submit" value="Сохранить" />
+</form>
+
+<a href="/">На главную</a>

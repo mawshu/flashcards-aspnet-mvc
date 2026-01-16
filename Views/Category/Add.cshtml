@@ -1,0 +1,19 @@
+﻿@model SergeevaMaria_Lab6_V2_1.Models.Category
+@{
+    ViewData["Title"] = "Добавить категорию";
+}
+
+<h2>Добавить категорию</h2>
+
+@foreach (var error in ViewData.ModelState.Values.SelectMany(v => v.Errors))
+{
+        <p style="color:red;">@error.ErrorMessage</p>
+}
+
+<form asp-action="Add" method="post">
+    <label>Название: <input asp-for="Title" /></label><br/>
+    <label>Описание: <input asp-for="Description" /></label><br/>
+    <input type="submit" value="Добавить" />
+</form>
+
+<a href="/">На главную</a>

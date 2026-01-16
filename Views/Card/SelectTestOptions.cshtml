@@ -1,0 +1,29 @@
+﻿@using Microsoft.AspNetCore.Mvc.Rendering
+@model SergeevaMaria_Lab6_V2_1.Models.SelectTestViewModel
+
+@{
+    ViewData["Title"] = "Параметры тестирования";
+}
+
+<h2>Настройка теста</h2>
+
+<form asp-action="StartTest" method="get">
+    <label>Максимальное количество карточек:
+        <input type="number" name="n" value="5" min="1" />
+    </label><br/><br/>
+
+    <label>Категория:
+        <select name="CategoryId">
+            <option value="0">Все категории</option>
+            @Model.Total
+            @foreach (var category in @Model.Categories)
+            {
+                    <option value="@category.Id">@category.Title</option>
+            }
+        </select>
+    </label><br/><br/>
+
+    <input type="submit" value="Начать тест" />
+</form>
+
+<a href="/">На главную</a>

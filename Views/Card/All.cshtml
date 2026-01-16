@@ -1,0 +1,29 @@
+﻿@model List<SergeevaMaria_Lab6_V2_1.Models.Card>
+@{
+    ViewData["Title"] = "Все карточки";
+}
+
+@if (TempData["Msg"] != null)
+{
+        <p style="color:green;">@TempData["Msg"]</p>
+}
+
+<h2>Все карточки</h2>
+<a href="/Card/Add">Добавить карточку</a>
+<table>
+    <tr><th>Слово</th><th>Перевод</th><th>Категория</th><th>Действия</th></tr>
+    @foreach (var card in Model)
+    {
+            <tr>
+                <td>@card.Word</td>
+                <td>@card.Translation</td>
+                <td>@card.Category?.Title</td>
+                <td>
+                    <a href="/Card/Details/@card.Id">Подробнее</a> |
+                    <a href="/Card/Edit/@card.Id">Редактировать</a> |
+                    <a href="/Card/Remove/@card.Id">Удалить</a>
+                </td>
+            </tr>
+    }
+</table>
+<a href="/">На главную</a>

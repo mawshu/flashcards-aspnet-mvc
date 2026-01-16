@@ -1,0 +1,19 @@
+﻿@model SergeevaMaria_Lab6_V2_1.Models.Card
+@using Microsoft.AspNetCore.Mvc.Rendering
+
+@{
+    ViewData["Title"] = "Редактировать карточку";
+}
+<h2>Редактировать карточку</h2>
+
+<form asp-action="Edit" method="post">
+    <input type="hidden" asp-for="Id" />
+    <label>Слово: <input asp-for="Word" /></label><br/>
+    <label>Перевод: <input asp-for="Translation" /></label><br/>
+    <label>Категория:
+        <select asp-for="CategoryId" asp-items="@(new SelectList(ViewBag.Categories, "Id", "Title"))"></select>
+    </label><br/>
+    <input type="submit" value="Сохранить" />
+</form>
+
+<a href="/">На главную</a>
